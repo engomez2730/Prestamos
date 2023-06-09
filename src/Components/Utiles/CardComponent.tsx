@@ -1,8 +1,8 @@
 import React from "react";
-import { Col, Row, Statistic, Card } from "antd";
-
+import { Statistic, Card } from "antd";
+import "./Card.css";
 interface CardProps {
-  styleObject: React.CSSProperties;
+  styleObject: string;
   usuariosActivos: number;
   label: string;
 }
@@ -13,15 +13,11 @@ const CardComponent: React.FC<CardProps> = ({
   label,
 }) => {
   return (
-    <Card style={styleObject} size="small">
+    <Card size="small" className={`card ${styleObject}`}>
       <Statistic
-        title={
-          <div style={{ fontSize: "25px", color: "#fff", fontWeight: 600 }}>
-            {label}
-          </div>
-        }
-        value={`${usuariosActivos}`}
-        valueStyle={{ fontSize: "40px", color: "#fff" }}
+        title={<div className="title">{label}</div>}
+        value={usuariosActivos}
+        valueStyle={{ fontSize: "#30px", color: "#fff" }}
       />
     </Card>
   );
